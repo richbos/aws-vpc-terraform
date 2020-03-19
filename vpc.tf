@@ -65,7 +65,7 @@ resource "aws_route_table" "pub" {
   }
 
   tags {
-    Name = "${var.SERVICE_NAME}-publicRT"
+    Name = "${var.cidr_prefix}-publicRT"
   }
 
 }
