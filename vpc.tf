@@ -5,7 +5,7 @@ resource "aws_vpc" "main" {
   enable_dns_support   = "true"
   enable_dns_hostnames = "true"
 
-  tags {
+  tags = {
     Name = "${var.cidr_prefix}-vpc"
   }
 }
@@ -16,7 +16,7 @@ resource "aws_subnet" "pub_a" {
   availability_zone = "${var.aws_region}a"
   map_public_ip_on_launch = "true"
 
-  tags {
+  tags = {
     Name = "${var.cidr_prefix}.1-pub-a"
   }
 }
@@ -27,7 +27,7 @@ resource "aws_subnet" "pub_b" {
   availability_zone = "${var.aws_region}b"
   map_public_ip_on_launch = "true"
 
-  tags {
+  tags = {
     Name = "${var.cidr_prefix}.2-pub-b"
   }
 }
@@ -37,7 +37,7 @@ resource "aws_subnet" "priv_a" {
   cidr_block        = "${var.cidr_prefix}.3.0/24"
   availability_zone = "${var.aws_region}a"
 
-  tags {
+  tags = {
     Name = "${var.cidr_prefix}.3-priv-a"
   }
 }
@@ -47,7 +47,7 @@ resource "aws_subnet" "priv_b" {
   cidr_block        = "${var.cidr_prefix}.4.0/24"
   availability_zone = "${var.aws_region}b"
 
-  tags {
+  tags = {
     Name = "${var.cidr_prefix}.4-priv-b"
   }
 }
@@ -64,7 +64,7 @@ resource "aws_route_table" "pub" {
     gateway_id = "${aws_internet_gateway.igw.id}"
   }
 
-  tags {
+  tags = {
     Name = "${var.cidr_prefix}-publicRT"
   }
 
